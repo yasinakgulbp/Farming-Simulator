@@ -21,7 +21,7 @@ public class JoystickController : MonoBehaviour
 
     public void TappedOnJoystickZone()
     {
-        Debug.Log("ekrana dokunuldu!");
+        //Debug.Log("ekrana dokunuldu!");
         tapPosition = Input.mousePosition;
         joystickOutline.position = tapPosition;
         //ekrana dokunulduğunu algılayıp, joystick'in görünmesini sağlayacağız

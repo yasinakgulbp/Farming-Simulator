@@ -5,6 +5,8 @@ using UnityEngine;
 public class BagController : MonoBehaviour
 {
     [SerializeField] private Transform bag;
+    public List<ProductData> productDataList;
+    private Vector3 productSize;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,17 +21,35 @@ public class BagController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Respawn"))
-        {
-            AddProductToBag(other.gameObject)
-;            Debug.Log("küp ile çarpýþýldý!");
-        }
+        
     }
 
-    public void AddProductToBag(GameObject cube)
+    public void AddProductToBag(ProductData productData)
     {
-        cube.transform.SetParent(bag, true);
-        cube.transform.localRotation = Quaternion.identity;
-        cube.transform.localPosition = Vector3.zero;
+        GameObject boxProduct = Instantiate(productData.productPrefab, Vector3.zero, Quaternion.identity);
+        boxProduct.transform.SetParent(bag, true);
+
+        CalculateObjectSize(boxProduct);
+        float yPosition = CalculateNewYPositionOfBox();
+        boxProduct.transform.localRotation = Quaternion.identity;
+        boxProduct.transform.localPosition = Vector3.zero;
+        boxProduct.transform.localPosition = new Vector3(0, yPosition, 0);
+        productDataList.Add(productData);
+    }
+
+    private float CalculateNewYPositionOfBox()
+    {
+        float newYPos = productSize.y * productDataList.Count;
+        return newYPos;
+    }
+
+    private void CalculateObjectSize(GameObject gameObject)
+    {
+        if(productSize == Vector3.zero)
+        {
+            MeshRenderer renderer = gameObject.GetComponent<MeshRenderer>();
+            productSize = renderer.bounds.size;
+        }
+        
     }
 }
