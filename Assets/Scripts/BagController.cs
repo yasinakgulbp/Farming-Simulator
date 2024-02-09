@@ -52,6 +52,7 @@ public class BagController : MonoBehaviour
                     }
                 }
             }
+            StartCoroutine(PutProductsInOrder());
             ControlBagCapacity();
         }
     }
@@ -128,5 +129,15 @@ public class BagController : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private IEnumerator PutProductsInOrder()
+    {
+        yield return new WaitForSeconds(0.15f);
+        for (int i = 0; i < bag.childCount; i++) 
+        {
+            float newYpos = productSize.y * i;
+            bag.GetChild(i).transform.localPosition = new Vector3(0, newYpos, 0);
+        }
     }
 }
