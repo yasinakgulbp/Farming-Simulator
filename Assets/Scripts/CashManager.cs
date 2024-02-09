@@ -29,17 +29,26 @@ public class CashManager : MonoBehaviour
         //Debug.Log("Cash " + coins);
         DisplayCoins(); 
     }
-
-    // Start is called before the first frame update
-    void Start()
+    private void SpendCoin(int price)
     {
-        
+        coins -= price;
+        DisplayCoins();
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool TryBuyThisUnit(int price) 
     {
-        
+        if (GetCoins() > price)
+        {
+            SpendCoin(price);
+            return true;
+            //paraný harca
+        }
+        return false;
+    }
+
+    public int GetCoins()
+    {
+        return coins;
     }
 
     private void DisplayCoins()
