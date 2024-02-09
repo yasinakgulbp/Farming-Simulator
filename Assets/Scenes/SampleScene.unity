@@ -988,7 +988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &311738838
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2302,7 +2302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: -0.00000001558191, z: 0.0000000072981776, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: 0.000000015581922, z: -0.0000000072981816, w: 0.90558946}
   m_LocalPosition: {x: 0, y: 12, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2741,7 +2741,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163480425}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42415538, y: -0.00000001558191, z: 0.0000000072981776, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: 0.000000015581922, z: -0.0000000072981816, w: 0.90558946}
   m_LocalPosition: {x: 0, y: 12, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2901,7 +2901,7 @@ GameObject:
   - component: {fileID: 1239929478}
   - component: {fileID: 1239929477}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BakeryText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4114,11 +4114,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850370080}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1867374984 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6722502163108754978, guid: 301890e9d1f64ec428d56fca6c8eb479, type: 3}
-  m_PrefabInstance: {fileID: 3421393052091798592}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1888945855
 GameObject:
   m_ObjectHideFlags: 0
@@ -4244,7 +4239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1967277564
 Transform:
   m_ObjectHideFlags: 0
@@ -4300,7 +4295,7 @@ MonoBehaviour:
   price: 12
   priceText: {fileID: 7663555}
   lockedUnit: {fileID: 1967277563}
-  UnlockedUnit: {fileID: 1867374984}
+  UnlockedUnit: {fileID: 1999287642}
 --- !u!1 &1998544062
 GameObject:
   m_ObjectHideFlags: 0
@@ -4341,9 +4336,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1999287643}
+  - component: {fileID: 1999287645}
+  - component: {fileID: 1999287644}
   m_Layer: 0
   m_Name: UnlockObjects
-  m_TagString: Untagged
+  m_TagString: UnlockBakeryUnit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4366,6 +4363,42 @@ Transform:
   - {fileID: 933889082}
   m_Father: {fileID: 7805107420088292019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1999287644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999287642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9f55e7a6d584f4680e04195b5fed81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bakeryText: {fileID: 1239929477}
+  maxStoredProductCount: 15
+  productType: 0
+--- !u!65 &1999287645
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999287642}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 14.94515, y: 7.5939074, z: 12.984522}
+  m_Center: {x: -4.1373377, y: 3.067628, z: -27.948238}
 --- !u!1 &2076230708
 GameObject:
   m_ObjectHideFlags: 0

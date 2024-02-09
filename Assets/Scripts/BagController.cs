@@ -34,6 +34,26 @@ public class BagController : MonoBehaviour
             }
             ControlBagCapacity();
         }
+
+        if (other.CompareTag("UnlockBakeryUnit"))
+        {   
+            UnlockBakeryUnitController bakeryUnit = other.GetComponent<UnlockBakeryUnitController>();
+
+            ProductType neededType = bakeryUnit.GetNeededProductType();
+
+            for (int i = productDataList.Count - 1; i >= 0; i--)
+            {
+                if (productDataList[i].productType == neededType)
+                {
+                    if (bakeryUnit.StoredProduct() == true)
+                    {
+                        Destroy(bag.transform.GetChild(i).gameObject);
+                        productDataList.RemoveAt(i);
+                    }
+                }
+            }
+            ControlBagCapacity();
+        }
     }
 
     private void SellProductsToShop(ProductData productData)
