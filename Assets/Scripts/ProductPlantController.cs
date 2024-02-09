@@ -42,7 +42,7 @@ public class ProductPlantController : MonoBehaviour
         Vector3 targetScale = originalScale / 3;
         transform.gameObject.LeanScale(targetScale, 1f);
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
 
         transform.gameObject.LeanScale(originalScale, 1f).setEase(LeanTweenType.easeOutBack);
         isReadyToPick=true;
