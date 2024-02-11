@@ -42,6 +42,7 @@ public class LockedUnitControl : MonoBehaviour
         //Varsa ürünü aç
         if (CashManager.instance.TryBuyThisUnit(price))
         {
+            AudioManager.instance.PlayAudio(AudioClipType.shopClip);
             Unlock();
             SaveUnit();
         }

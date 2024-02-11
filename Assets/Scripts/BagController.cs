@@ -26,6 +26,7 @@ public class BagController : MonoBehaviour
     {
         if (other.CompareTag("ShopPoint"))
         {
+            PlayShopSound();
             for (int i = productDataList.Count - 1; i >= 0 ; i--)
             {
                 SellProductsToShop(productDataList[i]);
@@ -138,6 +139,15 @@ public class BagController : MonoBehaviour
         {
             float newYpos = productSize.y * i;
             bag.GetChild(i).transform.localPosition = new Vector3(0, newYpos, 0);
+        }
+    }
+
+    private void PlayShopSound()
+    {
+        if (productDataList.Count > 0)
+        {
+            AudioManager.instance.PlayAudio(AudioClipType.shopClip);
+            AudioManager.instance.StopBackgroundMusic(); //Background müziðinin sürekli devap etmesi için bu satýrý silebilirsin
         }
     }
 }
