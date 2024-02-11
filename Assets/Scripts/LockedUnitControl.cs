@@ -7,16 +7,19 @@ public class LockedUnitControl : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private int price;
+    [SerializeField] private int ID;
 
     [Header("Objects")]
     [SerializeField] private TextMeshPro priceText;
     [SerializeField] private GameObject lockedUnit;
     [SerializeField] private GameObject UnlockedUnit;
     private bool isPurchased;
+    private string keyUnit = "KeyUnit";
     // Start is called before the first frame update
     void Start()
     {
         priceText.text = price.ToString();
+        LoadUnit();
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class LockedUnitControl : MonoBehaviour
         if (CashManager.instance.TryBuyThisUnit(price))
         {
             Unlock();
+            SaveUnit();
         }
         
     }
@@ -49,5 +53,23 @@ public class LockedUnitControl : MonoBehaviour
         isPurchased = true;
         lockedUnit.SetActive(false);
         UnlockedUnit.SetActive(true);
+    }
+
+    private void SaveUnit()
+    {
+        string key = keyUnit + ID.ToString();
+        // "KeyUnit"
+        PlayerPrefs.SetString(key, "saved");
+    }
+
+    private void LoadUnit()
+    {
+        string key = keyUnit + ID.ToString();
+        string status = PlayerPrefs.GetString(key);
+
+        if (status.Equals("saved"))
+        {
+            Unlock();
+        }
     }
 }
