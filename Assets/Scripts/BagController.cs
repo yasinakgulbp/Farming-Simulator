@@ -147,7 +147,7 @@ public class BagController : MonoBehaviour
         if (productDataList.Count > 0)
         {
             AudioManager.instance.PlayAudio(AudioClipType.shopClip);
-            AudioManager.instance.StopBackgroundMusic(); //Background müziðinin sürekli devap etmesi için bu satýrý silebilirsin
+            //AudioManager.instance.StopBackgroundMusic(); //Background müziðinin sürekli devap etmesi için bu satýrý silebilirsin
         }
     }
 }
