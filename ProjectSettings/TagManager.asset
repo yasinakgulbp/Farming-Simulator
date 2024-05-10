@@ -7,6 +7,10 @@ TagManager:
   - ShopPoint
   - UnlockBakeryUnit
   - Coin
+  - Sheep
+  - cown
+  - cownBoss
+  - Duvar
   layers:
   - Default
   - TransparentFX
@@ -14,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Engel
   - 
   - 
   - 
